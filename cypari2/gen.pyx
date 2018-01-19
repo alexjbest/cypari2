@@ -117,7 +117,7 @@ cdef inline bint have_ellwp_flag1_bug():
 
 
 @cython.final
-cdef class Gen(Gen_auto):
+cdef class Gen(Gen_base):
     """
     Cython extension class that models the PARI GEN type.
     """
@@ -2785,7 +2785,7 @@ cdef class Gen(Gen_auto):
         sig_off()
         return b != 0
 
-    lift_centered = Gen_auto.centerlift
+    lift_centered = Gen_base.centerlift
 
     def padicprime(x):
         """
@@ -3145,7 +3145,7 @@ cdef class Gen(Gen_auto):
         else:
             return new_gen(veceint1(x.g, stoi(n), prec_bits_to_words(precision)))
 
-    log_gamma = Gen_auto.lngamma
+    log_gamma = Gen_base.lngamma
 
     def polylog(x, long m, long flag=0, unsigned long precision=0):
         """
@@ -4542,7 +4542,7 @@ cdef class Gen(Gen_auto):
             factor_proven = saved_factor_proven
 
     # Standard name for SageMath
-    multiplicative_order = Gen_auto.znorder
+    multiplicative_order = Gen_base.znorder
 
     def __abs__(self):
         return self.abs()
