@@ -1,11 +1,9 @@
 # distutils: libraries = gmp pari
 """
-Declarations for non-inline functions from PARI.
+Declarations of PARI functions.
 
 This file contains all declarations from headers/paridecl.h from
-the PARI distribution, except the inline functions which are in
-declinl.pxi (that file is automatically included by this file).
-
+the PARI distribution.
 
 AUTHORS:
 
@@ -19,6 +17,9 @@ AUTHORS:
  - Jeroen Demeyer (2014-02-09): upgrade to PARI 2.7 (:trac:`15767`)
 
  - Jeroen Demeyer (2014-09-19): upgrade to PARI 2.8 (:trac:`16997`)
+
+ - Vincent Delecroix (2017-2018): auto-generate part of the declarations
+   from ``pari.desc``
 
 """
 
@@ -5168,7 +5169,6 @@ cdef extern from *:     # PARI headers already included by types.pxd
     void   pari_err_VAR(const char *f, GEN x, GEN y)
     void   pari_err_ROOTS0(const char *f)
 
-# Auto-generated declarations. There are taken from the PARI version
-# on the system, so they more up-to-date than the above. In case of
-# conflicting declarations, auto_paridecl should have priority.
-from .auto_paridecl cimport *
+    #########################################################
+    # All functions below are auto-generated from pari.desc #
+    #########################################################
